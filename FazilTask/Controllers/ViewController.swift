@@ -62,8 +62,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         petsTableView.deselectRow(at: indexPath, animated: true)
 
         let vc = storyboard?.instantiateViewController(identifier: Strings.DetailViewController.rawValue) as? DetailViewController
-        
-        vc?.petDataFromViewController = viewModelUser.arrUsers[indexPath.item]
+        vc?.showDetails(pet: viewModelUser.arrUsers[indexPath.item])
+        //vc?.petDataFromViewController = viewModelUser.arrUsers[indexPath.item]
         self.navigationController?.pushViewController (vc!, animated: true)
     }
     

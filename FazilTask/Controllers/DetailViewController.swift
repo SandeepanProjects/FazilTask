@@ -7,6 +7,10 @@
 
 import UIKit
 
+class PetDetails {
+    
+}
+
 class DetailViewController: UIViewController {
 
     var petDataFromViewController: Json4Swift_Base?
@@ -22,13 +26,20 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        petName.text = "Name: \(petDataFromViewController?.name ?? "/A")"
-        petBreed.text = "Breed: \(petDataFromViewController?.breed_group ?? "/A")"
-        petLifeSpan.text = "Lifespan : \(petDataFromViewController?.life_span ?? "/A")"
-        petOrigin.text = "Origin: \(petDataFromViewController?.origin ?? "/A")"
-        //petsImageView.image =
+        petName.text = "Name: \(petDataFromViewController?.name ?? "N/A")"
+        petBreed.text = "Breed: \(petDataFromViewController?.breed_group ?? "N/A")"
+        petLifeSpan.text = "Lifespan : \(petDataFromViewController?.life_span ?? "N/A")"
+        petOrigin.text = "Origin: \(petDataFromViewController?.origin ?? "N/A")"
+        petImage.loadThumbnail(urlSting: petDataFromViewController?.image?.url ?? "N/A")
     }
     
+    func showDetails(pet: Json4Swift_Base?) {
+        
+        if let petData = pet {
+            self.petDataFromViewController = petData
+        }
+       
+    }
 
     /*
     // MARK: - Navigation
