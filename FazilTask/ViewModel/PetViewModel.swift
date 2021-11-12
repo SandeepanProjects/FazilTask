@@ -8,10 +8,24 @@
 import Foundation
 import Alamofire
 
+
+public enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
+
 class PetViewModel {
     
     weak var vc: ViewController?
     var arrUsers = [Json4Swift_Base]()
+    
+    // MARK: - Private functions
+    private static func getData(url: URL,
+                                completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
     //private var dataService: DataService?
 
     //static let sharedInstance = UserViewModel()
@@ -77,34 +91,16 @@ class PetViewModel {
 //        }
 //        task.resume()
 //    }
-    
-    
-    
-    
-//    func getAllUsreDataAF(){
-//        AF.request("https://jsonplaceholder.typicode.com/todos/").response { response in
-//            if let data = response.data {
-//                do{
-//                    let userResponse = try JSONDecoder().decode([Json4Swift_Base].self, from: data)
-//                  //  self.arrUsers.append(contentsOf: userResponse)
-////                    DispatchQueue.main.async{
-////                        self.vc?.tblView.reloadData()
-////                    }
-//                }catch let err{
-//                    print(err.localizedDescription)
-//                }
-//            }
-//        }
-//    }
-    
-    
-    
+
     
     
     func fetchPhotoDetails(completionhandler:(( _ eventsdata:[Json4Swift_Base])->Void)?) {
-        AF.request(DataSource.url).response { [weak self] response in
+        let headers: HTTPHeaders = [
+            "x-api-key": "d6fd31ff-2b46-4600-b25d-cbcd09f0ac14",
+        ]
+        AF.request(DataSource.url, headers: headers).response { [weak self] response in
             if let data = response.data {
-                do{
+                do {
                     let userResponse = try JSONDecoder().decode([Json4Swift_Base].self, from: data)
                     self?.arrUsers.append(contentsOf: userResponse)
                     
@@ -113,23 +109,29 @@ class PetViewModel {
                     //                    DispatchQueue.main.async{
                     //                        self.vc?.tblView.reloadData()
                     //                    }
-                }catch let err{
+                } catch let err {
                     print(err.localizedDescription)
                 }
             }
         }
-        
-//        func fetchPhoto(withId id: Int) {
-//            self.dataService?.requestFetchPhoto(with: id, completion: { (photo, error) in
-//                if let error = error {
-//                    self.error = error
-//                    self.isLoading = false
-//                    return
-//                }
-//                self.error = nil
-//                self.isLoading = false
-//                self.photo = photo
-//            })
-//        }
+    }
+    
+    public static func downloadImage(url: URL,
+                                     completion: @escaping (Result<Data>) -> Void) {
+        getData(url: url) { data, response, error in
+            
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async() {
+                completion(.success(data))
+            }
+        }
     }
 }

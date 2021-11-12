@@ -19,7 +19,7 @@ class PetsViewCell: UITableViewCell {
     @IBOutlet weak var petLifeSpan: UILabel!
     @IBOutlet weak var petOrigin: UILabel!
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    //@IBOutlet weak var indicator: UIActivityIndicatorView!
     
     public static let cellId = "PetListCellId"
 
@@ -57,11 +57,11 @@ class PetsViewCell: UITableViewCell {
            guard pendingOperations.downloadsInProgress[indexPath] == nil else {
                return
            }
-           self.cache = NSCache()
-
-        if (self.cache.object(forKey: (indexPath as NSIndexPath).item as AnyObject) != nil){
-
-        }
+//           self.cache = NSCache()
+//
+//        if (self.cache.object(forKey: (indexPath as NSIndexPath).item as AnyObject) != nil){
+//
+//        }
            let downloader = ImageDownloader(photoRecord)
            
            downloader.completionBlock = {
@@ -107,25 +107,27 @@ class PetsViewCell: UITableViewCell {
         petBreed.text = petRecord.breed_group ?? "N/A"
         petLifeSpan.text = petRecord.life_span ?? "N/A"
         petOrigin.text = petRecord.origin ?? "N/A"
-        petsImageView.image = petRecord.imageSet
-        
-        switch (petRecord.state) {
-        case .filtered:
-            indicator.stopAnimating()
-            indicator.isHidden = true
-        case .failed:
-            indicator.stopAnimating()
-            petName.text = Strings.failedToLoad.rawValue
-            petBreed.text = Strings.failedToLoad.rawValue
-            petLifeSpan.text = Strings.failedToLoad.rawValue
-            petOrigin.text = Strings.failedToLoad.rawValue
-            
-        case .new, .downloaded:
-            indicator.startAnimating()
-            if let image =  petRecord.image {
-                startOperations(for: image , at: indexPath)
-            }
+        if let url = petRecord.image?.url {
+            petsImageView.loadThumbnail(urlSting: url)
         }
+        
+//        switch (petRecord.state) {
+//        case .filtered:
+//            indicator.stopAnimating()
+//            indicator.isHidden = true
+//        case .failed:
+//            indicator.stopAnimating()
+//            petName.text = Strings.failedToLoad.rawValue
+//            petBreed.text = Strings.failedToLoad.rawValue
+//            petLifeSpan.text = Strings.failedToLoad.rawValue
+//            petOrigin.text = Strings.failedToLoad.rawValue
+//
+//        case .new, .downloaded:
+//            indicator.startAnimating()
+//            if let image =  petRecord.image {
+//                startOperations(for: image , at: indexPath)
+//            }
+//        }
     }
     
 }

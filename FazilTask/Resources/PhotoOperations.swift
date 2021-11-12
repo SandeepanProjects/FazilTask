@@ -56,7 +56,9 @@ public class ImageDownloader: Operation {
             }
             
             if !imageData.isEmpty {
-                photoRecord.imageSet = UIImage(data:imageData)
+                DispatchQueue.main.async {
+                    self.photoRecord.imageSet = UIImage(data:imageData)
+                }
                 photoRecord.state = .downloaded
             } else {
                 photoRecord.state = .failed

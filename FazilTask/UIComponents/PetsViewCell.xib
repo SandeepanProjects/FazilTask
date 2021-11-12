@@ -52,19 +52,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wTx-p1-swo">
-                        <rect key="frame" x="285" y="40" width="20" height="20"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4FQ-Gg-Eo1" firstAttribute="trailing" secondItem="cbw-CK-gNF" secondAttribute="trailing" id="0fL-f5-VRJ"/>
                     <constraint firstItem="llv-7j-UMm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4RS-on-qar"/>
                     <constraint firstItem="wHZ-im-pA2" firstAttribute="leading" secondItem="4FQ-Gg-Eo1" secondAttribute="leading" id="5ZJ-Gp-alH"/>
-                    <constraint firstAttribute="trailing" secondItem="wTx-p1-swo" secondAttribute="trailing" constant="15" id="7Y6-qd-cCc"/>
                     <constraint firstItem="4FQ-Gg-Eo1" firstAttribute="leading" secondItem="cbw-CK-gNF" secondAttribute="leading" id="7eG-f6-YmD"/>
                     <constraint firstItem="cbw-CK-gNF" firstAttribute="leading" secondItem="0ge-ih-Cai" secondAttribute="leading" id="7vi-8Z-zBY"/>
                     <constraint firstItem="4FQ-Gg-Eo1" firstAttribute="top" secondItem="cbw-CK-gNF" secondAttribute="bottom" constant="2" id="EOL-rd-rOO"/>
-                    <constraint firstItem="wTx-p1-swo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GfB-Z7-wBm"/>
                     <constraint firstItem="llv-7j-UMm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="JW6-d8-S6C"/>
                     <constraint firstItem="wHZ-im-pA2" firstAttribute="height" secondItem="4FQ-Gg-Eo1" secondAttribute="height" id="WRw-mm-c0e"/>
                     <constraint firstItem="wHZ-im-pA2" firstAttribute="trailing" secondItem="4FQ-Gg-Eo1" secondAttribute="trailing" id="Yjg-xX-fmK"/>
@@ -80,7 +75,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="indicator" destination="wTx-p1-swo" id="Fwi-Hx-bQ2"/>
                 <outlet property="petBreed" destination="cbw-CK-gNF" id="DTQ-BC-lks"/>
                 <outlet property="petLifeSpan" destination="4FQ-Gg-Eo1" id="zl7-BG-dfC"/>
                 <outlet property="petName" destination="0ge-ih-Cai" id="t9c-z7-ub1"/>

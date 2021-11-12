@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var viewModelUser = PetViewModel()
     var photos = [Json4Swift_Base]()
     private let pendingOperations = PendingOperations()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +47,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: PetsViewCell.cellId) as? PetsViewCell {
             cell.fillCellBy(petRecord: viewModelUser.arrUsers[indexPath.row], indexPath: indexPath)
+            //cell.reloadDelegate = self
             return cell
         }
         else { return UITableViewCell() }
@@ -59,6 +59,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        petsTableView.deselectRow(at: indexPath, animated: true)
+
         let vc = storyboard?.instantiateViewController(identifier: Strings.DetailViewController.rawValue) as? DetailViewController
         
         vc?.petDataFromViewController = viewModelUser.arrUsers[indexPath.item]
