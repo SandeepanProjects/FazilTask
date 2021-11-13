@@ -23,22 +23,7 @@ class PetsViewCell: UITableViewCell {
     
     public static let cellId = "PetListCellId"
 
-    var cache:NSCache<AnyObject, AnyObject>!
-
-    private let pendingOperations = PendingOperations()
-    public weak var reloadDelegate: ReloadDelegate?
-    
-    private func startOperations(for photoRecord: Image, at indexPath: IndexPath) {
-           switch (photoRecord.state) {
-           case .new:
-               startDownload(for: photoRecord, at: indexPath)
-           case .downloaded:
-                print("downloaded")
-               startFiltration(for: photoRecord, at: indexPath)
-           default:
-               NSLog("do nothing")
-           }
-       }
+  //  var cache:NSCache<AnyObject, AnyObject>!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,56 +35,6 @@ class PetsViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
-    private func startDownload(for photoRecord: Image, at indexPath: IndexPath) {
-           
-           guard pendingOperations.downloadsInProgress[indexPath] == nil else {
-               return
-           }
-//           self.cache = NSCache()
-//
-//        if (self.cache.object(forKey: (indexPath as NSIndexPath).item as AnyObject) != nil){
-//
-//        }
-           let downloader = ImageDownloader(photoRecord)
-           
-           downloader.completionBlock = {
-               if downloader.isCancelled {
-                   return
-               }
-               
-               DispatchQueue.main.async {
-                   self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
-                   self.reloadDelegate?.reloadPets(at: indexPath)//(at: indexPath)
-               }
-           }
-           
-           pendingOperations.downloadsInProgress[indexPath] = downloader
-           pendingOperations.downloadQueue.addOperation(downloader)
-       }
-       
-       private func startFiltration(for photoRecord: Image, at indexPath: IndexPath) {
-              guard pendingOperations.filtrationsInProgress[indexPath] == nil else {
-                  return
-              }
-
-              let filterer = ImageFilteration(photoRecord)
-              filterer.completionBlock = {
-                  if filterer.isCancelled {
-                      return
-                  }
-
-                  DispatchQueue.main.async {
-                      self.pendingOperations.filtrationsInProgress.removeValue(forKey: indexPath)
-                      self.reloadDelegate?.reloadPets(at: indexPath)//(at: indexPath)
-                  }
-              }
-
-              pendingOperations.filtrationsInProgress[indexPath] = filterer
-              pendingOperations.filtrationQueue.addOperation(filterer)
-
-          }
     
     public func fillCellBy(petRecord: Json4Swift_Base, indexPath: IndexPath) {
         

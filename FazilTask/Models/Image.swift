@@ -20,8 +20,8 @@ struct Image : Codable {
 	let url : String?
 	let width : Int?
 
-    var state = PetRecordState.new
-    var imageSet = UIImage(named: "Placeholder")
+//    var state = PetRecordState.new
+//    var imageSet = UIImage(named: "Placeholder")
     
 	enum CodingKeys: String, CodingKey {
 

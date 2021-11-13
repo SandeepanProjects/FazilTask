@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     var viewModelUser = PetViewModel()
     var photos = [Json4Swift_Base]()
-    private let pendingOperations = PendingOperations()
+   // private let pendingOperations = PendingOperations()
     
     override func viewDidLoad() {
         super.viewDidLoad()

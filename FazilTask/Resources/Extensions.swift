@@ -31,19 +31,3 @@ extension UIImageView {
     }
 }
 
-// MARK: - Date extension
-extension Date {
-    
-    /// formattedDateString function is to format date in Australia/Sydney time zone
-    /// and it return as a string
-    func formattedDateString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_AU")
-        dateFormatter.timeZone = TimeZone(abbreviation: "Australia/Sydney")
-        dateFormatter.amSymbol = "AM"
-        dateFormatter.pmSymbol = "PM"
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.dateFormat = "MMM d, h:mm a"
-        return dateFormatter.string(from: self)
-    }
-}

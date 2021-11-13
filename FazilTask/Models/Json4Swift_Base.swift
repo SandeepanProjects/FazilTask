@@ -27,8 +27,8 @@ struct Json4Swift_Base : Codable {
 	let temperament : String?
 	let weight : Weight?
 
-    var state = PetRecordState.new
-    var imageSet = UIImage(named: "Placeholder")
+//    var state = PetRecordState.new
+//    var imageSet = UIImage(named: "Placeholder")
 
 	enum CodingKeys: String, CodingKey {
 

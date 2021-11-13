@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		066A90B77857C84487CD09C6 /* Pods_FazilTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0012AA86F0689B7C52706284 /* Pods_FazilTask.framework */; };
-		1805D2D5273EB499004B8E39 /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805D2D4273EB499004B8E39 /* PhotoOperations.swift */; };
 		1805D2D7273EBB13004B8E39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805D2D6273EBB13004B8E39 /* Constants.swift */; };
 		1805D2D9273ECBF6004B8E39 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805D2D8273ECBF6004B8E39 /* DetailViewController.swift */; };
 		18360273273EEBAE00F7E67F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18360272273EEBAE00F7E67F /* Extensions.swift */; };
@@ -28,7 +27,6 @@
 		188A7FD5273E5D7700FBE52C /* PetsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188A7FD3273E5D7700FBE52C /* PetsViewCell.xib */; };
 		18AA5D54273E6E74009CC8A0 /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA5D53273E6E74009CC8A0 /* PetViewModel.swift */; };
 		18AA5D57273E7016009CC8A0 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA5D56273E7016009CC8A0 /* DataSource.swift */; };
-		18AA5D59273E906D009CC8A0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AA5D58273E906D009CC8A0 /* DataService.swift */; };
 		1DCF1E7B9191DA5ABD36FADF /* Pods_FazilTask_FazilTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3518D3496BF3454E11C4031E /* Pods_FazilTask_FazilTaskUITests.framework */; };
 		C194C01727A24AD24FA10CF6 /* Pods_FazilTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204F49E5E0BA4E9C1F272AF2 /* Pods_FazilTaskTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		0012AA86F0689B7C52706284 /* Pods_FazilTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazilTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1805D2D4273EB499004B8E39 /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		1805D2D6273EBB13004B8E39 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1805D2D8273ECBF6004B8E39 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		18360272273EEBAE00F7E67F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		188A7FD3273E5D7700FBE52C /* PetsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsViewCell.xib; sourceTree = "<group>"; };
 		18AA5D53273E6E74009CC8A0 /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		18AA5D56273E7016009CC8A0 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		18AA5D58273E906D009CC8A0 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		204F49E5E0BA4E9C1F272AF2 /* Pods_FazilTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazilTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		257A85793BF26B90F9C6EF82 /* Pods-FazilTask-FazilTaskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FazilTask-FazilTaskUITests.release.xcconfig"; path = "Target Support Files/Pods-FazilTask-FazilTaskUITests/Pods-FazilTask-FazilTaskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3518D3496BF3454E11C4031E /* Pods_FazilTask_FazilTaskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazilTask_FazilTaskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,7 +203,6 @@
 		18AA5D52273E6E5B009CC8A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				18AA5D58273E906D009CC8A0 /* DataService.swift */,
 				18AA5D53273E6E74009CC8A0 /* PetViewModel.swift */,
 			);
 			path = ViewModel;
@@ -217,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				18AA5D56273E7016009CC8A0 /* DataSource.swift */,
-				1805D2D4273EB499004B8E39 /* PhotoOperations.swift */,
 				1805D2D6273EBB13004B8E39 /* Constants.swift */,
 				18360272273EEBAE00F7E67F /* Extensions.swift */,
 			);
@@ -488,11 +482,9 @@
 			files = (
 				18AA5D54273E6E74009CC8A0 /* PetViewModel.swift in Sources */,
 				188A7F9A273E550400FBE52C /* ViewController.swift in Sources */,
-				1805D2D5273EB499004B8E39 /* PhotoOperations.swift in Sources */,
 				188A7FCC273E556400FBE52C /* Image.swift in Sources */,
 				188A7FCD273E556400FBE52C /* Height.swift in Sources */,
 				188A7F96273E550400FBE52C /* AppDelegate.swift in Sources */,
-				18AA5D59273E906D009CC8A0 /* DataService.swift in Sources */,
 				1805D2D7273EBB13004B8E39 /* Constants.swift in Sources */,
 				188A7FD4273E5D7700FBE52C /* PetsViewCell.swift in Sources */,
 				188A7F98273E550400FBE52C /* SceneDelegate.swift in Sources */,

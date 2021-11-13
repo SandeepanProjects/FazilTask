@@ -25,80 +25,19 @@ class PetViewModel {
                                 completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
-    
-    //private var dataService: DataService?
-
-    //static let sharedInstance = UserViewModel()
-   // weak var vc: ViewController?
-    
-//    func fetchPhotoDetails(completionhandler:(( _ eventsdata:Json4Swift_Base)->Void)?){
-//                let request = URLRequest(url: DataSource.url)
-//      //  UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//
-//        let task = URLSession(configuration: .default).dataTask(with: request) { data, response, error in
-//
-////            let alertController = UIAlertController(title: Strings.oops.rawValue,
-////                                                    message: Strings.fetchError.rawValue,
-////                                                    preferredStyle: .alert)
-////            let okAction = UIAlertAction(title: Strings.ok.rawValue, style: .default)
-////            alertController.addAction(okAction)
-//
-//            if let data = data {
-//
-//                do {
-//
-//                    let userResponse = try JSONDecoder().decode(Json4Swift_Base.self, from: data)
-//                   // var     percentageList = userResponse.map { item.percentage }
-//
-//                    completionhandler?(userResponse)
-//
-////                    self.photos.append(userResponse)
-////                    DispatchQueue.main.async{
-////                        self.vc?.lunchCollectionView.reloadData()
-////                    }
-////                    let datasourceDictionary =
-////                        try PropertyListSerialization.propertyList(from: data,
-////                                                                   options: [],
-////                                                                   format: nil) as! [String: String]
-////
-////                    for (name, value) in datasourceDictionary {
-////                        let url = URL(string: value)
-////                        if let url = url {
-////                            let photoRecord = PhotoRecord(name: name, url: url)
-////                            self.photos.append(photoRecord)
-////                        }
-////                    }
-//
-//                   // DispatchQueue.main.async {
-//
-////                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-////                        self.vc?.lunchCollectionView.reloadData()                    }
-//                } catch {
-//
-//                    print("error")
-////                    DispatchQueue.main.async {
-////                        self.present(alertController, animated: true, completion: nil)
-////                    }
-//                }
-//            }
-//
-//            if error != nil {
-////                DispatchQueue.main.async {
-////                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-////                    self.present(alertController, animated: true, completion: nil)
-////                }
-//            }
-//        }
-//        task.resume()
-//    }
-
-    
-    
+        
     func fetchPhotoDetails(completionhandler:(( _ eventsdata:[Json4Swift_Base])->Void)?) {
         let headers: HTTPHeaders = [
             "x-api-key": "d6fd31ff-2b46-4600-b25d-cbcd09f0ac14",
         ]
-        AF.request(DataSource.url, headers: headers).response { [weak self] response in
+       
+        let parameters: Parameters = [
+             "attach_breed":5,
+             "page": 2,
+             "limit": 5
+        ]
+        
+        AF.request( "https://api.thedogapi.com/v1/breeds?attach_breed=1&limit=5&page=1", headers: headers).response { [weak self] response in
             if let data = response.data {
                 do {
                     let userResponse = try JSONDecoder().decode([Json4Swift_Base].self, from: data)
